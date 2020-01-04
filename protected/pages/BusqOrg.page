@@ -1,0 +1,110 @@
+<html>
+<head>
+  <title>WebCentra - Subsistema de Declaraciones Juradas</title>
+</head>
+<body>
+<com:TContent ID="Main">
+
+
+<br><br>
+<b><big>Resultados de la Busqueda</big></b>
+<br><br>
+
+<table class="formtabla">
+		<tr>
+		<td class="formtd"><com:TLabel Text="Criterio de Busqueda:"/></td>
+		<td class="formcampo">
+		<com:TRadioButton ID="rad_codigo" GroupName="opciones_busq" Text="Codigo" Checked="true"/>
+		<com:TRadioButton ID="rad_nombre" GroupName="opciones_busq" Text="Nombre"/>
+		</td>
+	</tr>
+    <tr>
+	    <td class="formtd"><com:TLabel Text="Cadena de Busqueda:" ForControl="txt_cadena" /></td>
+		<td class="formcampo"><com:TTextBox ID="txt_cadena" Columns="31"/> <com:TButton ID="btn_buscar" Text="Buscar" ValidationGroup="Grupo1" OnClick="BuscarReg"/>
+		<com:TRequiredFieldValidator ID="val" ControlToValidate="txt_cadena" ErrorMessage="Este campo no puede quedar vacio" ValidationGroup="Grupo1" Display="Dynamic"/>
+		<com:TRegularExpressionValidator ControlToValidate="txt_cadena" RegularExpression="^[a-zA-Z0-9���������� .,()����]+$" ErrorMessage="Este campo tiene caracteres prohibidos" ValidationGroup="Grupo1" Display="Dynamic"/>
+		</td>
+	</tr>
+
+		
+</table>
+
+
+<br><br>
+
+<com:TDataGrid
+	ID="DataGrid"
+	AllowPaging="true"
+	Width="686px"
+	PageSize="20"
+	PagerStyle.Mode="Numeric"
+	CellPadding="0"
+	CellSpacing="0"
+	GridLines="Both"
+	DataKeyField="id_organismo"
+	HeaderStyle.BackColor="black"
+	HeaderStyle.ForeColor="white"
+	ItemStyle.BackColor="#BFCFFF"
+	ItemStyle.BorderColor="white"
+	ItemStyle.Font.Italic="true"
+	OnItemCreated="itemCreated"
+	OnEditCommand="editItem"
+	OnUpdateCommand="saveItem"
+	OnCancelCommand="cancelItem"
+	OnDeleteCommand="BorrarReg"
+
+	
+	AlternatingItemStyle.BackColor="#E6ECFF"
+	OnPageIndexChanged="changePage"
+	OnPagerCreated="pagerCreated"
+	AutoGenerateColumns="false"
+	>
+		<com:TBoundColumn
+		ID="id_organismo"
+		HeaderText="Codigo Organismo"
+		DataField="id_organismo"
+		HeaderStyle.Width="1px"
+		/>
+
+		<com:TBoundColumn
+		ID="nombre"
+		HeaderText="Nombre del Organismo"
+		HeaderStyle.Width="300px"
+		DataField="nombre"
+		ItemStyle.HorizontalAlign="Left"
+		/>
+		
+		<com:TEditCommandColumn
+		HeaderText="Operacion"
+		HeaderStyle.Width="100px"
+		UpdateText="Guardar"
+		ItemStyle.HorizontalAlign="Center"
+		ItemStyle.Font.Italic="false"
+		CancelText="Cancelar"
+		EditText="Editar"
+		/>
+	<com:TButtonColumn
+		ID="Borrar"
+		HeaderText="Borrar"
+		HeaderStyle.Width="50px"
+		ItemStyle.HorizontalAlign="Center"
+		ItemStyle.Font.Italic="false"
+		Text="Borrar"
+		CommandName="delete"
+		/>
+		
+</com:TDataGrid>
+
+<com:TClientScript ID="alerta" Visible="False">
+alert("Imposible eliminar registro, verifique que no existan registros asociados.")
+</com:TClientScript>
+
+<br /><br />
+
+<b><com:TLabel ID="lbl_registros"/></b>
+
+
+
+</com:TContent>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<html>
+<head>
+  <title>WebCentra - Subsistema de Declaraciones Juradas</title>
+
+
+</head>
+<body>
+
+<com:TContent ID="Main">
+<br /><br />
+
+
+<div class="zsnazzy">
+	<b class="xtop"><b class="xb1"></b><b class="xb2 color_b"></b><b class="xb3 color_b"></b><b class="xb4 color_b"></b></b>
+	<div class="xboxcontent">
+		<h1 class="color_b">Instrucciones</h1>
+	</div>
+	<b class="xbottom"><b class="xb4"></b><b class="xb3"></b><b class="xb2"></b><b class="xb1"></b></b>
+</div>
+<br /> <br />
+
+<div id="test" class="test">
+    
+
+<div class="box1">
+	<b class="xtop"><b class="xb1"></b><b class="xb2 color_b"></b><b class="xb3 color_b"></b><b class="xb4 color_b"></b></b>
+	<div class="xboxcontent">
+		<h1 class="color_b">Caja 1</h1>
+	</div>
+	<b class="xbottom"><b class="xb4"></b><b class="xb3"></b><b class="xb2"></b><b class="xb1"></b></b>
+</div>
+
+
+<div class="box2">
+	<b class="xtop"><b class="xb1"></b><b class="xb2 color_b"></b><b class="xb3 color_b"></b><b class="xb4 color_b"></b></b>
+	<div class="xboxcontent">
+		<h1 class="color_b">Caja 2</h1>
+	</div>
+	<b class="xbottom"><b class="xb4"></b><b class="xb3"></b><b class="xb2"></b><b class="xb1"></b></b>
+</div>
+
+</div>
+<br /><br />
+
+
+</com:TContent>
+</body>
+</html>

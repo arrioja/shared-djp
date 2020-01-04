@@ -1,0 +1,178 @@
+<html>
+<head>
+  <title>WebCentra - Subsistema de Declaraciones Juradas</title>
+</head>
+<body>
+<com:TContent ID="Main">
+
+
+<br><br>
+<b><big>Anular Declaración</big></b>
+<br><br>
+
+<table class="formtabla">
+	<tr>
+		<td class="formtd"><com:TLabel Text="Declaración No:" ForControl="txt_numdeclara" /></td>
+		<td class="formcampo"><com:TTextBox ID="txt_numdeclara" Columns="10" AutoPostBack="true" OnTextChanged="Validator_numdeclara"/> 
+		<com:TRequiredFieldValidator ControlToValidate="txt_numdeclara" ErrorMessage="Este campo no puede quedar vacio"  ValidationGroup="Grupo1" Display="Dynamic"/>
+		<com:TRegularExpressionValidator ControlToValidate="txt_numdeclara" RegularExpression="^\d{1,8}$" ErrorMessage="Este campo tiene caracteres prohibidos" Display="Dynamic"/>
+		<com:TCustomValidator ID="ValActive" ControlToValidate="txt_numdeclara" ErrorMessage="La declaración no existe o ya fue anulada" OnServerValidate="Validator_numdeclara" Display="Dynamic"/>
+		</td>
+	</tr>
+	<tr>
+		<td class="formtd"><com:TLabel Text="Anulada:" ForControl="chk_anulada" /></td>
+		<td class="formcampo"><com:TCheckBox ID="chk_anulada" Enabled="false" ValidationGroup="Grupo1"/>
+		<com:TRequiredFieldValidator ControlToValidate="chk_anulada" ErrorMessage="Debe seleccionar este campo." ValidationGroup="Grupo1" Display="Dynamic"/>
+		</td>
+	</tr>
+
+</table>
+
+<br /> <br />
+
+<com:TPanel ID="pnl_datos_temporales" Visible="false">
+
+<b><big>Información sobre la Declaración a Anular</big></b>
+<br><br>
+<table class="formtabla">
+	<tr>
+		<td class="formtd">N. Declaración</td>
+		<td class="formtd">N. Cédula</td>
+		<td class="formtd">Nombres</td>
+		<td class="formtd">Apellidos</td>
+		<td class="formtd">Organismo</td>
+	</tr>
+		<td class="formcampo"><com:TLabel ID="lbl_no_declaracion"/></td>
+		<td class="formcampo"><com:TLabel ID="lbl_no_cedula"/></td>
+		<td class="formcampo"><com:TLabel ID="lbl_nombres"/></td>
+		<td class="formcampo"><com:TLabel ID="lbl_apellidos"/></td>
+		<td class="formcampo"><com:TLabel ID="lbl_organismo"/></td>
+	<tr>
+	</tr>
+	<tr>
+		<td class="formtd">F.Declara</td>
+		<td class="formtd">Folio</td>
+		<td class="formtd">Cargo</td>
+		<td class="formtd">S.Mensual</td>
+		<td class="formtd">Patrimonio</td>
+	</tr>
+	<tr>
+		<td class="formcampo"><com:TLabel ID="lbl_fecha_declaracion"/></td>
+		<td class="formcampo"><com:TLabel ID="lbl_folio"/></td>
+		<td class="formcampo"><com:TLabel ID="lbl_cargo"/></td>
+		<td class="formcampo"><com:TLabel ID="lbl_sueldo_mensual"/></td>
+		<td class="formcampo"><com:TLabel ID="lbl_patrimonio"/></td>
+	</tr>
+</table>
+
+	
+</com:TPanel>
+
+<br><br>
+<com:TButton ID="btn_aceptar" 
+	Text="Aceptar"
+	OnClick="Aceptar" ValidationGroup="Grupo1"/>
+&nbsp;
+
+<com:TButton ID="btn_cancelar"
+	Text="Cancelar"
+	OnClick="Cancelar"/>
+&nbsp;
+&nbsp;
+&nbsp;
+
+<com:TButton ID="btn_clear"
+	Text="Limpiar Campos"
+	OnClick="LimpiarCampos"/>
+
+<br><br>
+<br><br>
+<b><big>Declaraciones Anuladas</big></b>
+<br><br>
+
+<com:TDataGrid
+	ID="DataGrid"
+	AllowPaging="true"
+	Width="686px";
+	PageSize="10"
+	PagerStyle.Mode="Numeric"
+	CellPadding="0"
+	CellSpacing="0"
+	GridLines="Both"
+	DataKeyField="id_declara"
+	HeaderStyle.BackColor="black"
+	HeaderStyle.ForeColor="white"
+	ItemStyle.BackColor="#BFCFFF"
+	ItemStyle.BorderColor="white"
+	ItemStyle.Font.Italic="true"
+
+
+	AlternatingItemStyle.BackColor="#E6ECFF"
+	OnPageIndexChanged="changePage"
+	OnPagerCreated="pagerCreated"
+	AutoGenerateColumns="false"
+	>
+		<com:TBoundColumn
+		ID="iddeclara"
+		HeaderText="No. Declara."
+		DataField="id_declara"
+		HeaderStyle.Width="76px"
+		/>
+		<com:TBoundColumn
+		ID="cedulafunc"
+		HeaderText="No. Cedula"
+		HeaderStyle.Width="76px"
+		DataField="cedula_func"
+		/>
+		<com:TBoundColumn
+		ID="nombrefunc"
+		HeaderText="Nombres"
+		HeaderStyle.Width="76px"
+		DataField="nombres"
+		/>
+		<com:TBoundColumn
+		ID="apellidofunc"
+		HeaderText="Apellidos"
+		HeaderStyle.Width="76px"
+		DataField="apellidos"
+		/>
+		<com:TBoundColumn
+		ID="organismo"
+		HeaderText="Organismo"
+		HeaderStyle.Width="76px"
+		DataField="nombre"
+		/>
+		<com:TBoundColumn
+		ID="fechadeclara"
+		HeaderText="Fecha Declara."
+		DataFormatString="#date('d/m/Y',strtotime({0}))"
+		HeaderStyle.Width="76px"
+		DataField="fecha_declara"
+		/>
+		<com:TBoundColumn
+		ID="cargo"
+		HeaderText="Cargo"
+		HeaderStyle.Width="76px"
+		DataField="cargo"
+		/>
+		<com:TBoundColumn
+		ID="REM"
+		HeaderText="S. Mensual"
+		HeaderStyle.Width="76px"
+		DataField="sueldo_mensual"
+		/>
+		<com:TBoundColumn
+		ID="patrimonio"
+		HeaderText="Patrimonio"
+		HeaderStyle.Width="76px"
+		DataField="patrimonio"
+		/>
+</com:TDataGrid>
+
+<br /><br />
+
+<b><com:TLabel ID="lbl_registros"/></b>
+
+</com:TContent>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<%@ MasterClass="Application.layouts.RepoLayout" Title="Reporte" %>
+<html>
+<head>
+  <title>WebCentra - Subsistema de Declaraciones Juradas</title>
+
+
+</head>
+<body>
+
+<com:TContent ID="Main">
+<br /><br />
+
+<big>CONTRALORIA GENERAL DEL ESTADO SUCRE</big>
+<p>OFICINA DE ATENCION AL CIUDADANO</p>
+<big>COMPROBANTE DE RECEPCION</big><br />
+<big>DE DECLARACION JURADA DE PATRIMONIO</big><br />
+<p>Declaración No.: <com:TLabel ID="rep_iddeclara" Text="label11"/> </p>
+
+<br />
+<table style="text-align: left; position:relative; left:50%; width: 968px; margin-left:-484px;" border="1" cellpadding="0" cellspacing="0">
+	<tbody>
+		<tr>
+			<td style="font-family: Helvetica,Arial,sans-serif; width: 470px;"><b>NOMBRES Y APELLIDOS</b></td>
+			<td style="font-family: Helvetica,Arial,sans-serif; width: 200px;"><b>CED. IDENT</b></td>
+			<td style="font-family: Helvetica,Arial,sans-serif; width: 145px;"><b>NO.FOLIO</b></td>
+			<td style="width: 145px; font-family: Helvetica,Arial,sans-serif;"><b>NO. ANEXO</b></td>
+		</tr>
+		<tr>
+			<td style="font-family: Helvetica,Arial,sans-serif; width: 470px;"><com:TLabel ID="rep_nombreape" Text="label1"/></td>
+			<td style="font-family: Helvetica,Arial,sans-serif; width: 200px;"><com:TLabel ID="rep_ceddeclarante" Text="label2"/></td>
+			<td style="font-family: Helvetica,Arial,sans-serif; width: 145px;"><com:TLabel ID="rep_numfolio" Text="label3"/></td>
+			<td style="width: 145px; font-family: Helvetica,Arial,sans-serif;"><com:TLabel ID="rep_numanexo" Text="label4"/></td>
+		</tr>
+		<tr>
+			<td style="font-family: Helvetica,Arial,sans-serif; width: 470px;"><b>ESTATUS:</b> <com:TLabel ID="rep_estatus" Text="label5"/></td>
+			<td style="font-family: Helvetica,Arial,sans-serif; width: 200px;"><b>F.RECEPCION:</b> <com:TLabel ID="rep_frecepcion" Text="label6"/></td>
+			<td colspan="2" rowspan="1" style="font-family: Helvetica,Arial,sans-serif; width: 145px;"><b>SELLO RECEPCION</b></td>
+		</tr>
+		<tr>
+			<td colspan="2" rowspan="1" style="font-family: Helvetica,Arial,sans-serif; width: 200px; height: 122px; vertical-align: top;"><b>OBSERVACIONES:</b><br><com:TLabel ID="rep_observaciones" Text="label7"/></td>
+			<td colspan="2" rowspan="1" style="font-family: Helvetica,Arial,sans-serif; width: 145px; height: 122px;"></td>
+		</tr>
+		<tr>
+			<td colspan="2" rowspan="1" style="font-family: Helvetica,Arial,sans-serif; width: 200px; height: 15px;"><b>NOTA IMPORTANTE:</b></td>
+			<td colspan="2" rowspan="1" style="font-family: Helvetica,Arial,sans-serif; width: 145px; height: 15px;"><b>IMPRESION DACTILAR DEL CONSIGNANTE</b></td>
+		</tr>
+		<tr>
+			<td colspan="2" rowspan="1" style="text-align: justify; font-family: Helvetica,Arial,sans-serif; width: 200px;">
+			El Comprobante de recepcion de declaracion jurada de patrimonio,
+			debidamente sellado, que entrega La Contraloria General del Estado, es
+			prueba fehaciente de que el funcionario hizo su declaración.
+			CONSERVELO, por ningun concepto se desprenda de el, reproduzcalo
+			cuantas veces sea necesario y consigne una copia en la Oficina de
+			Recursos Humanos a fin de que sea incorporada en su expediente
+			personal, de conformidad con lo previsto en el articulo 26 de la ley
+			contra corrupcion.<br>Los funcionarios o empleados publicos no
+			estan obligados a suministrar copia de su declaracion jurada de patrimonio al
+			Organismo donde prestan servicio.<br>Los unicos autorizados para
+			requerir la presentacion de la declaracion jurada de patrimonio son: La
+			Contraloria GEneral de la Republica, La Fiscalia General de la
+			Republica y los tribunales competentes, de Conformidad con lo
+			establecido en los articulos 28 y 41 numeral 2 de la Ley Contra la
+			Corrupción.<br>
+			</td>
+			<td style="text-align: center; vertical-align: bottom; font-family: Helvetica,Arial,sans-serif; width: 145px;"><br>
+				<div style="text-align: center;">P.I.</div>
+			</td>
+			<td style="text-align: center; vertical-align: bottom; font-family: Helvetica,Arial,sans-serif; width: 145px;">
+				<div style="text-align: center;">P.D.</div>
+			</td>
+		</tr>
+		<tr>
+			<td style="font-family: Helvetica,Arial,sans-serif; width: 200px;" colspan="2" rowspan="1">APELLIDOS Y NOMBRES DEL CONSIGNANTE</td>
+			<td style="font-family: Helvetica,Arial,sans-serif; width: 145px;" colspan="2" rowspan="1">CEDULA DE IDENTIDAD</td>
+		</tr>
+		<tr>
+			<td style="font-family: Helvetica,Arial,sans-serif; width: 200px;" colspan="2" rowspan="1"><com:TLabel ID="rep_consignomape" Text="label8"/></td>
+			<td style="font-family: Helvetica,Arial,sans-serif; width: 145px;" colspan="2" rowspan="1"><com:TLabel ID="rep_cedconsigante" Text="label9"/></td>
+		</tr>
+		<tr>
+			<td style="font-family: Helvetica,Arial,sans-serif; width: 200px;" colspan="2" rowspan="1">APELLIDOS Y NOMBRES DEL FUNCIONARIO RECEPTOR</td>
+			<td style="font-family: Helvetica,Arial,sans-serif; width: 145px;" colspan="2" rowspan="1">FIRMA</td>
+		</tr>
+		<tr>
+			<td style="font-family: Helvetica,Arial,sans-serif; width: 200px;" colspan="2" rowspan="1"><com:TLabel ID="rep_funcrecep" Text="label10"/></td>
+			<td style="font-family: Helvetica,Arial,sans-serif; width: 145px;" colspan="2" rowspan="1"></td>
+		</tr>
+	</tbody>
+</table>
+
+
+
+</com:TContent>
+</body>
+</html>

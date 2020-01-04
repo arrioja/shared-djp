@@ -1,0 +1,142 @@
+<html>
+<head>
+  <title>WebCentra - Subsistema de Declaraciones Juradas</title>
+</head>
+<body>
+<com:TContent ID="Main">
+
+
+<br><br>
+<b><big>Resultados de la Busqueda</big></b>
+<br><br>
+
+<table class="formtabla">
+		<tr>
+		<td class="formtd"><com:TLabel Text="Criterio de Busqueda:"/></td>
+		<td class="formcampo">
+		<com:TRadioButton ID="rad_cedula" GroupName="opciones_busq" Text="No. Cedula" Checked="true"/>
+		<com:TRadioButton ID="rad_nombre" GroupName="opciones_busq" Text="Nombres"/>
+		<com:TRadioButton ID="rad_apellidos" GroupName="opciones_busq" Text="Apellidos"/>
+		<com:TRadioButton ID="rad_declara" GroupName="opciones_busq" Text="No. Declaracion"/>
+		</td>
+	</tr>
+    <tr>
+	    <td class="formtd"><com:TLabel Text="Cadena de Busqueda: " ForControl="txt_cadena" /></td>
+		<td class="formcampo"><com:TTextBox ID="txt_cadena" Columns="31"/> <com:TButton ID="btn_buscar" Text="Buscar" ValidationGroup="Grupo1" OnClick="BuscarReg"/>
+		<com:TRequiredFieldValidator ID="val" ControlToValidate="txt_cadena" ErrorMessage="Este campo no puede quedar vacio" ValidationGroup="Grupo1" Display="Dynamic"/>
+		<com:TRegularExpressionValidator ControlToValidate="txt_cadena" RegularExpression="^[a-zA-Z0-9���������� .,()����]+$" ErrorMessage="Este campo tiene caracteres prohibidos" ValidationGroup="Grupo1" Display="Dynamic"/>
+		</td>
+	</tr>
+
+
+</table>
+
+
+<br><br>
+
+<com:TDataGrid
+	ID="DataGrid"
+	AllowPaging="true"
+	Width="686px"
+	PageSize="10"
+	PagerStyle.Mode="Numeric"
+	PagerStyle.HorizontalAlign="Center"
+	CellPadding="0"
+	CellSpacing="0"
+	GridLines="Both"
+	HeaderStyle.BackColor="black"
+	HeaderStyle.ForeColor="white"
+	ItemStyle.BackColor="#BFCFFF"
+	ItemStyle.BorderColor="white"
+	ItemStyle.Font.Italic="true"
+	DataKeyField="id_declara"
+	OnEditCommand="editItem"
+	OnDeleteCommand="anularItem"
+	AlternatingItemStyle.BackColor="#E6ECFF"
+	OnPageIndexChanged="changePage"
+	OnPagerCreated="pagerCreated"
+	AutoGenerateColumns="false"
+	>
+		<com:TBoundColumn
+		ID="iddeclara"
+		HeaderText="No. Declara."
+		DataField="id_declara"
+		HeaderStyle.Width="76px"
+		/>
+		<com:TBoundColumn
+		ID="cedulafunc"
+		HeaderText="No. Cedula"
+		HeaderStyle.Width="76px"
+		DataField="cedula_func"
+		/>
+		<com:TBoundColumn
+		ID="nombrefunc"
+		HeaderText="Nombres"
+		HeaderStyle.Width="76px"
+		DataField="nombres"
+		/>
+		<com:TBoundColumn
+		ID="apellidofunc"
+		HeaderText="Apellidos"
+		HeaderStyle.Width="76px"
+		DataField="apellidos"
+		/>
+		<com:TBoundColumn
+		ID="organismo"
+		HeaderText="Organismo"
+		HeaderStyle.Width="76px"
+		DataField="nombre"
+		/>
+		<com:TBoundColumn
+		ID="fechadeclara"
+		HeaderText="Fecha Declara."
+		DataFormatString="#date('d/m/Y',strtotime({0}))"
+		HeaderStyle.Width="76px"
+		DataField="fecha_declara"
+		/>
+		<com:TBoundColumn
+		ID="cargo"
+		HeaderText="Cargo"
+		HeaderStyle.Width="76px"
+		DataField="cargo"
+		/>
+		<com:TBoundColumn
+		ID="REM"
+		HeaderText="S. Mensual"
+		HeaderStyle.Width="76px"
+		DataField="sueldo_mensual"
+		/>
+		<com:TBoundColumn
+		ID="patrimonio"
+		HeaderText="Patrimonio"
+		HeaderStyle.Width="76px"
+		DataField="patrimonio"
+		/>
+		<com:TEditCommandColumn
+		HeaderText="Operacion"
+		HeaderStyle.Width="100px"
+		UpdateText="Guardar"
+		ItemStyle.HorizontalAlign="Center"
+		ItemStyle.Font.Italic="false"
+		CancelText="Cancelar"
+		EditText="Editar"
+		/>
+		
+	<com:TButtonColumn
+		ID="Anular"
+		HeaderText="Anular"
+		HeaderStyle.Width="50px"
+		ItemStyle.HorizontalAlign="Center"
+		ItemStyle.Font.Italic="false"
+		Text="Anular"
+		CommandName="delete"
+		/>
+</com:TDataGrid>
+
+<br /><br />
+
+<b><com:TLabel ID="lbl_registros"/></b>
+
+</com:TContent>
+</body>
+</html>

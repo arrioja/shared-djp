@@ -1,0 +1,43 @@
+<html>
+<head>
+  <title>WebCentra - Subsistema de Declaraciones Juradas</title>
+
+
+</head>
+<body>
+
+<com:TContent ID="Main">
+<br /><br />
+
+<big><b>Comprobante de Recepción</b></big>
+<br /><br />
+
+<table class="formtabla">
+  <tr>
+    <td class="formtd"><com:TLabel Text="No. Declaración:" ForControl="txt_numdeclara" /></td>
+    <td class="formcampo"><com:TTextBox ID="txt_numdeclara" Columns="10"/>  <com:TButton ID="btn_aceptar_numdeclara" Text="Buscar" OnClick="buscar_comprobante" ValidationGroup="Grupo1"/>
+     <com:TRequiredFieldValidator ControlToValidate="txt_numdeclara" ErrorMessage="Ingrese el numero de declaración sin puntos." Display="Dynamic" ValidationGroup="Grupo1"/>
+     <com:TRegularExpressionValidator ControlToValidate="txt_numdeclara" RegularExpression="^\d{1,10}$" Display="Dynamic" Text="El número de declaración debe intruducirse sin puntos, comas o letras." />
+     <com:TCustomValidator ID="validator" ControlToValidate="txt_numdeclara" Display="Dynamic"/>
+     
+    </td>
+  </tr>
+</table>
+
+<br /><br /><br />
+<big><b>Comprobante de Recepción</b></big>
+<br /><br />
+
+<table class="formtabla">
+  <tr>
+    <td class="formtd"><com:TLabel Text="Lapso:" /></td>
+    <td class="formcampo"><com:TLabel Text="Desde: " /><com:TDatePicker ID="dat_desde" InputMode="DropDownList" Timestamp=<%= @strtotime("-1 month") %>/> <br /> <br />
+    <com:TLabel Text="Hasta: " /> <com:TDatePicker ID="dat_hasta" InputMode="DropDownList" Timestamp=<%= @strtotime("-1 month") %>/>
+    </td>
+  </tr>
+</table>
+<br />
+<com:TButton ID="btn_aceptar_lapso" Text="Buscar" OnClick="buscar_lapso" ValidationGroup="Grupo2"/>
+</com:TContent>
+</body>
+</html>

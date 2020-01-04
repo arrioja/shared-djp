@@ -1,0 +1,31 @@
+<com:TContent ID="Main">
+
+<br><br>
+<b><big>Datos del Organismo</big></b>
+<br><br>
+	<table class="formtabla">    
+		<tr>
+			<td class="formtd"><com:TLabel Text="Codigo de Organismo:" ForControl="txt_codorg"/></td>
+			<td class="formcampo"><com:TTextBox ID="txt_codorg" Columns="4" MaxLength="4" AutoPostBack="true" Enabled="false"/><br>
+			</td>
+		</tr>
+		<tr>
+		    <td class="formtd"><com:TLabel Text="Nombre:" ForControl="txt_nombre"/></td> 
+			<td class="formcampo"><com:TTextBox ID="txt_nombre" Enabled="true" Columns="50" MaxLength="100"/>
+			<com:TRequiredFieldValidator Display="Dynamic" ControlToValidate="txt_nombre" Text="Debes colocar el Nombre del Organismo." ValidationGroup="Grupo1"/>
+			<com:TRegularExpressionValidator ControlToValidate="txt_nombre" RegularExpression="^[a-zA-Z0-9áéíóúñüÁÉÍÓÚÑÜ]+$" ErrorMessage="Este campo tiene caracteres prohibidos" ValidationGroup="Grupo1" Display="Dynamic"/>
+			</td>
+		</tr>
+	</table>
+
+<br><br>
+<com:TButton ID="btn_aceptar" Text="Aceptar" OnClick="Aceptar" ValidationGroup="Grupo1"/>
+&nbsp;
+<com:TButton ID="btn_cancelar" Text="Cancelar" OnClick="Cancelar"/>
+&nbsp;
+&nbsp;
+&nbsp;
+<com:TButton ID="btn_clear" Text="Limpiar Campos" OnClick="LimpiarCampos"/>
+
+
+</com:TContent>

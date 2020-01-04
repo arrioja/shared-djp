@@ -1,0 +1,43 @@
+<%@ MasterClass="Application.layouts.RepoLayout" Title="Reporte" %>
+<html>
+<head>
+  <title>WebCentra - Subsistema de Declaraciones Juradas</title>
+
+
+</head>
+<body>
+
+<com:TContent ID="Main">
+<br /><br />
+
+<big>CONTRALORIA GENERAL DEL ESTADO SUCRE</big>
+<p>OFICINA DE ATENCION AL CIUDADANO</p>
+<big>DECLARACIONES JURADAS DE PATRIMONIO</big><br />
+<big>LAPSO: <com:TLabel ID="lbl_lapso"/></big><br />
+<br /><br />
+
+<com:TDataGrid
+	ID="DataGrid"
+	EnableViewState="false"
+	CellPadding="1"
+	BorderWidth="1"
+	BorderStyle="double"
+	Width="686px"
+	BorderColor="black"
+	CellSpacing="1"
+	HeaderStyle.BackColor="silver"
+	GridLines="Both"
+	/>
+<br /><br />
+<big>Atentamente,</big><br /><br /><br /><br />
+
+<big><com:TLabel ID="lbl_nombre_firmante"/></big><br />
+<big><com:TLabel ID="lbl_cargo"/></big>
+
+
+<com:TClientScript ID="alerta" Visible="False">
+alert("Seleccione en el formulario 'Firmantes' la persona indicada para avalar el reporte.")
+</com:TClientScript>
+</com:TContent>
+</body>
+</html>

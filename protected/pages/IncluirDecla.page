@@ -1,0 +1,198 @@
+<html>
+<head>
+  <title>WebCentra</title>
+</head>
+
+<body>
+<com:TContent ID="Main">
+
+<br><br>
+<b><big>Información General</big></b>
+<br><br>
+	<table class="formtabla">   
+		<tr>
+			<td class="formtd"><com:TLabel Text="C.I. del Funcionario:" ForControl="txt_cedula"/></td>
+			<td class="formcampo"><com:TTextBox ID="txt_cedula" Columns="8" MaxLength="8" AutoPostBack="true" OnTextChanged="CambioCedula" /><br>
+			<com:TRequiredFieldValidator ID="val" ControlToValidate="txt_cedula" ErrorMessage="Ingrese el numero de cedula sin puntos." Display="Dynamic" ValidationGroup="Grupo1"/>
+			<com:TRegularExpressionValidator ControlToValidate="txt_cedula" RegularExpression="^\d{1,8}$" Display="Dynamic" Text="El número de cédula debe intruducirse sin puntos, comas o letras." />
+			</td>
+		</tr>
+		<tr>
+		    <td class="formtd"><com:TLabel Text="No. de Declaracion:" ForControl="txt_numdecla"/></td>
+			<td class="formcampo"><com:TTextBox ID="txt_numdecla" Columns="5" MaxLength="5" Enabled="false"/></td>
+		</tr>
+		<tr>
+		    <td class="formtd"><com:TLabel Text="Tipo de Declaración:"/></td>
+			<td class="formcampo"><com:TRadioButton ID="rad_tipodeclara_cese" Enabled="false" GroupName="tipodeclara" Text="De Cese" 	AutoPostBack="true" OnCheckedChanged="RadioSeleccionado"/>
+				<com:TRadioButton ID="rad_tipodeclara_actu" Enabled="false" GroupName="tipodeclara" Text="De Actualizacion" AutoPostBack="true" OnCheckedChanged="RadioSeleccionado"/>
+				<com:TRadioButton ID="rad_tipodeclara_incl" Enabled="false" GroupName="tipodeclara" Text="De Inclusión" AutoPostBack="true" OnCheckedChanged="RadioSeleccionado"/>
+
+			</td>
+		</tr>
+		<tr>
+		    <td class="formtd"><com:TLabel Text="Fecha de la Declaración:" ForControl="dta_fechadeclara"/></td>
+			<td class="formcampo"><com:TDatePicker Enabled="false" ID="dta_fechadeclara" DateFormat="dd/MM/yyyy" Culture="es" Mode="Button"/> <br>
+			<com:TDataTypeValidator ControlToValidate="dta_fechadeclara" DataType="Date" DateFormat="dd/MM/yyyy" Text="El formato valido de fecha es: (dd/MM/yyyy)." Display="Dynamic" />
+			<com:TRequiredFieldValidator Display="Dynamic" ControlToValidate="dta_fechadeclara" Text="Debes colocar una Fecha de Declaración" ValidationGroup="Grupo1" />
+			</td>
+		</tr>
+		<tr>
+		    <td class="formtd"><com:TLabel Text="Nombres:" ForControl="txt_nombres"/></td> 
+			<td class="formcampo"><com:TTextBox ID="txt_nombres" Enabled="false" Columns="50" MaxLength="100"/>
+			<com:TRequiredFieldValidator Display="Dynamic" ControlToValidate="txt_nombres" Text="Debes colocar los Nombres." ValidationGroup="Grupo1"/>
+			</td>
+		</tr>
+		<tr>
+		    <td class="formtd"> <com:TLabel Text="Apellidos:" ForControl="txt_apellidos"/> </td>
+			<td class="formcampo"><com:TTextBox ID="txt_apellidos" Enabled="false" Columns="50" MaxLength="100" /> 
+			<com:TRequiredFieldValidator Display="Dynamic" ControlToValidate="txt_profesion" Text="Debes colocar los Apellidos." ValidationGroup="Grupo1"/>
+			</td>
+		</tr>
+		<tr>
+			<td class="formtd"> <com:TLabel Text="Código del Organismo:" ForControl="txt_codorg"/></td> 
+			<td class="formcampo"><com:TTextBox ID="txt_codorg" Columns="3" Enabled="false" AutoPostBack="true" OnTextChanged="CambioCodOrg" MaxLength="3"/> 
+			<com:TDropDownList ID="ddl_codorg" Enabled="false" Width="372px" OnSelectedIndexChanged="ddl_codorgChanged" DataTextField="nombre" AutoPostBack="true" DataValueField="id_organismo"></com:TDropDownList> 
+			<com:TRequiredFieldValidator ControlToValidate="txt_codorg" ErrorMessage="Este campo no puede quedar vacio" Display="Dynamic"/>
+			<com:TRegularExpressionValidator ControlToValidate="txt_codorg" RegularExpression="^\d{1,3}$" Display="Dynamic" Text="El codigo de organismo debe intruducirse sin puntos, comas o letras." />
+			<com:TCustomValidator ControlToValidate="txt_codorg" ID="vcodorg" Display="Dynamic" Text="El Codigo ingresado no existe."/>
+
+			</td>
+		</tr>
+		<tr>
+		    <td class="formtd"> <com:TLabel Text="Dirección:" ForControl="txt_direccion"/> </td>
+			<td class="formcampo"><com:TTextBox ID="txt_direccion" Columns="50" Enabled="false" MaxLength="100"/> 
+			<com:TRegularExpressionValidator ControlToValidate="txt_direccion" RegularExpression="^[a-zA-Z0-9áéíóúñüÁÉÍ .,()ÓÚÑÜ]+$" ErrorMessage="Este campo tiene caracteres prohibidos" ValidationGroup="Grupo1" Display="Dynamic"/>
+			</td>
+		</tr>
+		<tr>
+		    <td class="formtd"> <com:TLabel Text="División:" ForControl="txt_division"/> </td>
+			<td class="formcampo"><com:TTextBox ID="txt_division" Columns="50" Enabled="false" MaxLength="100" /> 
+			<com:TRegularExpressionValidator ControlToValidate="txt_division" RegularExpression="^[a-zA-Z0-9áéíóúñüÁÉÍ .,()ÓÚÑÜ]+$" ErrorMessage="Este campo tiene caracteres prohibidos" ValidationGroup="Grupo1" Display="Dynamic"/>
+			</td>
+		</tr>
+		<tr>
+		    <td class="formtd"> <com:TLabel Text="Departamento: " ForControl="txt_departamento"/> </td>
+			<td class="formcampo"><com:TTextBox ID="txt_departamento" Columns="50" Enabled="false" MaxLength="100"/> 
+			<com:TRegularExpressionValidator ControlToValidate="txt_departamento" RegularExpression="^[a-zA-Z0-9áéíóúñüÁÉÍ .,()ÓÚÑÜ]+$" ErrorMessage="Este campo tiene caracteres prohibidos" ValidationGroup="Grupo1" Display="Dynamic"/>
+			</td>
+		</tr>
+		<tr>
+			<td class="formtd"> <com:TLabel Text="Profesión: " ForControl="txt_profesion"/> </td>
+			<td class="formcampo"><com:TTextBox ID="txt_profesion" Columns="50" Enabled="false" MaxLength="100"/> 
+			<com:TRequiredFieldValidator Display="Dynamic" ControlToValidate="txt_profesion" Text="Debes colocar una profesión" ValidationGroup="Grupo1"/>
+			<com:TRegularExpressionValidator ControlToValidate="txt_profesion" RegularExpression="^[a-zA-Z0-9áéíóúñüÁÉÍ .,()ÓÚÑÜ]+$" ErrorMessage="Este campo tiene caracteres prohibidos" ValidationGroup="Grupo1" Display="Dynamic"/>
+			</td>
+		</tr>
+		<tr>
+			<td class="formtd"> <com:TLabel Text="Cargo: " ForControl="txt_cargo"/> </td> 
+			<td class="formcampo"><com:TTextBox ID="txt_cargo" Columns="50" Enabled="false" MaxLength="100"/> 
+			<com:TRequiredFieldValidator Display="Dynamic" ControlToValidate="txt_cargo" Text="Debes especificar el cargo." ValidationGroup="Grupo1"/>
+			<com:TRegularExpressionValidator ControlToValidate="txt_cargo" RegularExpression="^[a-zA-Z0-9áéíóúñüÁÉÍ .,()ÓÚÑÜ]+$" ErrorMessage="Este campo tiene caracteres prohibidos" ValidationGroup="Grupo1" Display="Dynamic"/>
+			</td>
+		</tr>
+		<tr>
+		    <td class="formtd"><com:TLabel Text="Fecha de toma del Cargo: " ID="lab_fcargo" /> </td>
+			<td class="formcampo"> <com:TDatePicker ID="dta_fcargo" DateFormat="dd/MM/yyyy" Culture="es" Mode="Button" Enabled="false"/> <br>
+			<com:TDataTypeValidator ControlToValidate="dta_fcargo" DataType="Date" DateFormat="dd/MM/yyyy" Text="El formato valido de fecha es: (dd/MM/yyyy)." Display="Dynamic" />
+			<com:TRequiredFieldValidator Display="Dynamic" ControlToValidate="dta_fcargo" Text="Debes colocar una Fecha de Declaración" ValidationGroup="Grupo1" />
+			</td>
+				
+		</tr>
+		<tr>
+			<td class="formtd"> <com:TLabel Text="Direccion de Habitación: " ForControl="txt_dirhab"/> </td> 
+			<td class="formcampo"><com:TTextBox ID="txt_dirhab" TextMode="MultiLine" Rows="6" Columns="57" Enabled="false"/>
+			<com:TRegularExpressionValidator ControlToValidate="txt_dirhab" RegularExpression="^[a-zA-Z0-9áéíóúñüÁÉÍ .,()ÓÚÑÜ]+$" ErrorMessage="Este campo tiene caracteres prohibidos" ValidationGroup="Grupo1" Display="Dynamic"/>
+			</td>
+		</tr>
+		<tr>
+			<td class="formtd"> <com:TLabel Text="Telefonos: " ForControl="txt_telefono"/> </td> 
+			<td class="formcampo"><com:TTextBox ID="txt_telefono" Columns="50" MaxLength="100" Enabled="false"/> 
+			<com:TRegularExpressionValidator ControlToValidate="txt_telefono" RegularExpression="^[a-zA-Z0-9áéíóúñüÁÉÍ .,()ÓÚÑÜ]+$" ErrorMessage="Este campo tiene caracteres prohibidos" ValidationGroup="Grupo1" Display="Dynamic"/>
+			</td>
+		</tr>
+		<tr>
+			<td class="formtd"> <com:TLabel Text="Folio: " ForControl="txt_folio"/> </td> 
+			<td class="formcampo"><com:TTextBox ID="txt_folio" Columns="4" MaxLength="5" Enabled="false"/> 
+			<com:TRequiredFieldValidator Display="Dynamic" ControlToValidate="txt_folio" Text="Debes especificar No. de Folio." ValidationGroup="Grupo1"/>
+			<com:TRegularExpressionValidator ControlToValidate="txt_folio" RegularExpression="^[a-zA-Z0-9áéíóúñüÁÉÍ .,()ÓÚÑÜ]+$" ErrorMessage="Este campo tiene caracteres prohibidos" ValidationGroup="Grupo1" Display="Dynamic"/>
+			</td>
+		</tr>
+		<tr>
+			<td class="formtd"> <com:TLabel Text="Sueldo Mensual: " ForControl="txt_sueldomen"/> </td> 
+			<td class="formcampo"><com:TTextBox ID="txt_sueldomen" Columns="10" MaxLength="10" Enabled="false"/> 
+			<com:TRegularExpressionValidator ControlToValidate="txt_sueldomen" RegularExpression="^\d{1,10}$" Display="Dynamic" Text="El número de cédula debe intruducirse sin puntos, comas o letras." />
+			</td>
+		</tr>
+		<tr>
+			<td class="formtd"> <com:TLabel Text="Patrimonio: " ForControl="txt_patri"/> </td> 
+			<td class="formcampo"><com:TTextBox ID="txt_patri" Columns="10" MaxLength="10" Enabled="false"/> 
+			<com:TRegularExpressionValidator ControlToValidate="txt_patri" RegularExpression="^\d{1,10}$" Display="Dynamic" Text="El número de cédula debe intruducirse sin puntos, comas o letras." />
+			</td>
+		</tr>
+		<tr>
+			<td class="formtd"> <com:TLabel Text="Persona Autórizada: " ForControl="txt_perauto"/> </td> 
+			<td class="formcampo"><com:TTextBox ID="txt_perauto" Columns="20" Enabled="False" />
+			<com:TRegularExpressionValidator ControlToValidate="txt_perauto" RegularExpression="^[a-zA-Z0-9áéíóúñüÁÉÍ .,()ÓÚÑÜ]+$" ErrorMessage="Este campo tiene caracteres prohibidos" ValidationGroup="Grupo1" Display="Dynamic"/>
+			 </td>
+		</tr>
+		<tr>
+			<td class="formtd"> <com:TLabel Text="Observaciones: " ForControl="txt_observa"/> </td> 
+			<td class="formcampo"><com:TTextBox ID="txt_observa" TextMode="MultiLine" Rows="6" Columns="57" Enabled="false"/> 
+			<com:TRegularExpressionValidator ControlToValidate="txt_observa" RegularExpression="^[a-zA-Z0-9áéíóúñüÁÉÍ .,()ÓÚÑÜ]+$" ErrorMessage="Este campo tiene caracteres prohibidos" ValidationGroup="Grupo1" Display="Dynamic"/>
+			</td>
+		</tr>
+		<tr>
+			<td class="formtd"><com:TLabel Text="¿Posee Consignante?"/></td>
+			<td class="formcampo"><com:TRadioButton ID="rad_consigna_si" GroupName="consigna" Text="Sí" AutoPostBack="true" Enabled="false" OnCheckedChanged="ConsignaSeleccionado"/>
+				<com:TRadioButton ID="rad_consigna_no" GroupName="consigna" Text="No" Enabled="false" AutoPostBack="true" OnCheckedChanged="ConsignaSeleccionado"/>
+			</td>
+		</tr>
+<tr>
+	</table>
+
+<br />
+
+<br><br>
+<b><big>Datos del Consignante</big></b>
+<br><br>
+
+<table class="formtabla">
+    <tr>
+	    <td class="formtd"><com:TLabel Text="Cédula: " ForControl="txt_cedcon"/></td>
+		<td class="formcampo"><com:TTextBox ID="txt_cedcon" Columns="10" MaxLength="10" Enabled="false"/></td>
+	</tr>
+	<tr>
+		<td class="formtd"><com:TLabel Text="Nombre: " ForControl="txt_nomcon"/></td>
+		<td class="formcampo"><com:TTextBox ID="txt_nomcon" Columns="50" MaxLength="100" Enabled="false"/></td>
+	</tr>
+	<tr>
+		<td class="formtd"><com:TLabel Text="N° de Anexos: " ForControl="txt_numanexo"/></td>
+		<td class="formcampo"><com:TTextBox ID="txt_numanexo" Columns="2" MaxLength="2" Enabled="false"/></td>
+	</tr>
+</table>
+
+
+<br><br>
+<com:TButton ID="btn_aceptar" 
+	Text="Aceptar"
+	OnClick="Aceptar" ValidationGroup="Grupo1"/>
+&nbsp;
+
+<com:TButton ID="btn_cancelar"
+	Text="Cancelar"
+	OnClick="Cancelar"/>
+&nbsp;
+&nbsp;
+&nbsp;
+
+<com:TButton ID="btn_clear"
+	Text="Limpiar Campos"
+	OnClick="LimpiarCampos"/>
+
+
+ </com:TContent>
+
+
+
+</body>
+</html>

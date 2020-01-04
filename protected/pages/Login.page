@@ -1,0 +1,43 @@
+<%@ MasterClass="Application.layouts.LoginLayout" Title="Login" %>
+<html>
+<head>
+  <title>WebCentra - Subsistema de Declaraciones Juradas</title>
+
+
+</head>
+<body>
+
+<com:TContent ID="Main">
+
+
+<div class="xsnazzy" >
+	<b class="xtop"><b class="xb1"></b><b class="xb2 color_b"></b><b class="xb3 color_b"></b><b class="xb4 color_b"></b></b>
+	<div class="xboxcontent">
+		<h1 class="color_b">Login de Usuario</h1>
+			<table>
+			    <tr>
+				    <td class="form2td"><com:TLabel Text="Usuario: " ForControl="txt_usuario"/></td>
+					<td><com:TTextBox ID="txt_usuario" /></td>
+				</tr>
+				<tr>
+				    <td class="form2td"><com:TLabel Text="Clave:" ForControl="txt_clave"/></td>
+					<td><com:TTextBox ID="txt_clave" TextMode="Password"/></td>	
+				</tr>
+				<tr>
+				<td colspan="2" rowspan="1"><com:TButton ID="Ingresar" Text="Ingresar" OnClick="checkpass" ValidationGroup="Grupo1" /></td>
+				    
+				</tr>
+				
+			</table>
+			
+			
+	</div>
+	<b class="xbottom"><b class="xb4"></b><b class="xb3"></b><b class="xb2"></b><b class="xb1"></b></b>
+</div>
+			<com:TRequiredFieldValidator ControlToValidate="txt_usuario" ErrorMessage="<br /><u><b>Error:</b></u> Debes especificar un Usuario" Display="Dynamic" ValidationGroup="Grupo1"/>
+			<com:TRequiredFieldValidator ControlToValidate="txt_clave" ErrorMessage="<br /><u><b>Error:</b></u> Debes colocar tu contrase�a" Display="Dynamic" ValidationGroup="Grupo1"/>
+			<com:TLabel ID="lbl_error" ForeColor="Red"/>
+
+</com:TContent>
+</body>
+</html>
